@@ -5,7 +5,7 @@ date: 2024-09-08
 categories: [Windows Internals, Concepts]
 tags: [Windows API, Windows Programming]
 image:
-  path: assets/temp/windows-internals/concepts/windows-api.jpg
+  path: /assets/temp/windows-internals/concepts/windows-api.jpg
 ---
 
 
@@ -25,7 +25,7 @@ Before proceeding to a clear definition, we need to understand what does user an
 {: .prompt-info }
 
 
-![User Mode and Kernel Mode](../assets/temp/windows-Internals/concepts/user-mode-and-kernel-mode-2.webp)
+![User Mode and Kernel Mode](/assets/temp/windows-Internals/concepts/user-mode-and-kernel-mode-2.webp)
 _User Mode and Kernel Mode_
 
 #### So, What Actually is Windows API ?
@@ -84,19 +84,19 @@ The word *service* can refer to a callable routine (specifically a function or p
 
 - **Native system services (or system calls):** These are the undocumented, underlying services in the OS that are callable from user mode. For example, **NtCreateFile** is the internal system service the Windows **CreateFileW** function calls to open or create a file.
 
-    ![Notepad_transition_syscall](../assets/temp/windows-Internals/concepts/notepad_transition_syscall.png)
+    ![Notepad_transition_syscall](/assets/temp/windows-Internals/concepts/notepad_transition_syscall.png)
     _How the native system calls work_
 
     This is how it works:
 
     1) Our application (e.g., **Notepad.exe**) accesses `kernel32.dll` (this DLL is used for interacting with other processes, memory, drives or the file system) and calls the Windows API **`CreateFileW`** function, which is part of the Windows API. This function is used to open or create a file.
 
-    ![1](../assets/temp/windows-Internals/concepts/1.png)
+    ![1](/assets/temp/windows-Internals/concepts/1.png)
     _x64dbg: In main module, calling CreateFileW() whose stub resides in kernel32.dll_
 
     Here, you can clearly see that there's a `call` instruction which essentially is similar to calling a function, here it is calling `CreateFileW` which resides in kernel32.dll (the '.' after the kernel32 means that we are particularly targeting the `CreateFileW` function under kernel32.dll).
 
-    ![2](../assets/temp/windows-Internals/concepts/2.png)
+    ![2](/assets/temp/windows-Internals/concepts/2.png)
     _x64dbg: Entered into kernel32.dll memory space where we see a jump to CreateFileW user-mode implementation which resides in the kernelbase.dll_
 
     After following the previous `call`, we enter into **kernel32.dll** memory space (the space it takes in a process to load itself). Here we see a small stub or forwarder code containing the `jmp` to the actual user-mode implementation. 
@@ -105,12 +105,12 @@ The word *service* can refer to a callable routine (specifically a function or p
 
     2) The actual user-mode implementation of `CreateFileW` resides in `kernelbase.dll` (in modern version of Windows). This DLL contains the user-mode implementation of various Windows API functions. The `kernelbase.dll` handles some parameter validation and preparation for the system call but does not directly interact with the kernel.
 
-    ![2](../assets/temp/windows-Internals/concepts/3.png)
+    ![2](/assets/temp/windows-Internals/concepts/3.png)
     _x64dbg: Entered into kernelbase.dll where the call to NtCreateFile resides_
 
     3) `CreateFileW` in `kernelbase.dll` then calls a native API (function) in `ntdll.dll` (the Windows NT Layer DLL), which provides a access to lower-level system services. Specifically, it calls `NTCreateFile` which is the native API for file operation in Windows.
 
-    ![2](../assets/temp/windows-Internals/concepts/4.png)
+    ![2](/assets/temp/windows-Internals/concepts/4.png)
     _x64dbg: The NtCreateFile stub which performs a syscall_
 
     4) The Native API `NTCreateFile` contains the technical instructions or syscall call stub to initiate the system call by executing the system call and enables the temporary transition (CPU switch) from user mode (ring 3) to kernel mode (ring 0) after execution.
@@ -125,7 +125,7 @@ The word *service* can refer to a callable routine (specifically a function or p
     {: .prompt-info }
 
     This is how it looks like
-    ![syscall_LSTAR](../assets/temp/windows-Internals/concepts/syscall_LSTAR.png)
+    ![syscall_LSTAR](/assets/temp/windows-Internals/concepts/syscall_LSTAR.png)
     _How transitioning using syscall looks like_
 
     5) Once in kernel mode, the system service dispatcher `KiSystemCall/KiSystemCall64` consults the **System Service Descriptor Table (SSDT)** which contains the addresses (or pointers) to the actual kernel functions that should be executed based on the executed system call ID (index number in the `EAX` register, here `55`, which is the system call id for `NtCreateFile`). This table maps the system call number for `NtCreateFile` to its corresponding function in the kernel.
@@ -135,7 +135,6 @@ The word *service* can refer to a callable routine (specifically a function or p
     8) The kernel's file system drivers (such as the NTFS driver) perform the actual operation of opening or creating the file. They access the file system and hardware, which user-mode code can't directly interact with.
 
     9) Once the file operation is completed by the kernel, the `KiSystemCall64` dispatcher uses the `sysret` instruction to switch the CPU's privilege level back from **Ring 0 (kernel mode)** to **Ring 3 (user mode)**, restoring the user-mode thread's context. The result (e.g., a file handle or error code) is passed back up the chain: from the kernel to **`ntdll.dll`**, then back to **`kernelbase.dll`**, and finally to your application (e.g., Notepad.exe). Control switches back to **user mode** as the result is returned.
-
     > Yes, there's more to it, but this is sufficient for us now.
     {: .prompt-info}
 
