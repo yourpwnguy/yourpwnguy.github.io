@@ -5,7 +5,7 @@ date: 2024-09-08
 categories: [Windows Internals, Concepts]
 tags: [Windows API, Windows Programming]
 image:
-  path: ../temp/windows-internals/concepts/windows-api.jpg
+  path: /temp/windows-internals/concepts/windows-api.jpg
 ---
 
 
