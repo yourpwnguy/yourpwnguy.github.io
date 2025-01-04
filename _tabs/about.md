@@ -9,7 +9,10 @@ order: 4
 
 ## ace@localhost~$ whoami
 
-Hi, I’m Aakansh, and I’m really into low-level security stuff like assembly, exploit development, reverse engineering, and malware analysis. These are the areas that excite me the most, and they’re what drive the work I do.
+![Desktop View](/assets/img/favicons/undraw.png){: width="800" height="800" }
+
+
+Hi, I'm Aakansh, and I'm really obsessed low-level security stuff like assembly, exploit development, reverse engineering, and malware analysis. These are the areas that excite me the most, and they’re what drive the work I do.
 
 I started with web development, which gave me a good base to build on. Now, I still love web security and enjoy finding vulnerabilities in web applications.
 

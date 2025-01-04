@@ -1,5 +1,5 @@
 ---
-title: "Part-1: Introduction To Windows API and General Concepts"
+title: "Part 1: Introduction To Windows API and General Concepts"
 description: "A comprehensive guide, covering everything you need to know about the Windows API from start to finish."
 date: 2024-09-08
 categories: [Windows Internals, Concepts]
@@ -28,7 +28,7 @@ Before proceeding to a clear definition, we need to understand what does user an
 ![User Mode and Kernel Mode](/assets/temp/windows-internals/concepts/user-mode-and-kernel-mode-2.webp)
 _User Mode and Kernel Mode_
 
-#### So, What Actually is Windows API ?
+#### Now, What Actually is Windows API ?
 
 Windows API is a set of tools that allows develops to create programs that can interact with the Windows OS. It works in **user mode**, meaning it lets programs access system resources like files, memory and devices without interacting directly with the core parts of the OS.
 
@@ -89,7 +89,7 @@ The word *service* can refer to a callable routine (specifically a function or p
 
     This is how it works:
 
-    1) Our application (e.g., **Notepad.exe**) accesses `kernel32.dll` (this DLL is used for interacting with other processes, memory, drives or the file system) and calls the Windows API **`CreateFileW`** function, which is part of the Windows API. This function is used to open or create a file.
+    1) Our application (e.g., **Notepad.exe**) accesses `kernel32.dll` (this DLL is used for interacting with other processes, memory, drives or the file system) and calls the Windows API `CreateFileW` function, which is part of the Windows API. This function is used to open or create a file.
 
     ![1](/assets/temp/windows-internals/concepts/1.png)
     _x64dbg: In main module, calling CreateFileW() whose stub resides in kernel32.dll_
@@ -134,7 +134,7 @@ The word *service* can refer to a callable routine (specifically a function or p
 
     8) The kernel's file system drivers (such as the NTFS driver) perform the actual operation of opening or creating the file. They access the file system and hardware, which user-mode code can't directly interact with.
 
-    9) Once the file operation is completed by the kernel, the `KiSystemCall64` dispatcher uses the `sysret` instruction to switch the CPU's privilege level back from **Ring 0 (kernel mode)** to **Ring 3 (user mode)**, restoring the user-mode thread's context. The result (e.g., a file handle or error code) is passed back up the chain: from the kernel to **`ntdll.dll`**, then back to **`kernelbase.dll`**, and finally to your application (e.g., Notepad.exe). Control switches back to **user mode** as the result is returned.
+    9) Once the file operation is completed by the kernel, the `KiSystemCall64` dispatcher uses the `sysret` instruction to switch the CPU's privilege level back from **Ring 0 (kernel mode)** to **Ring 3 (user mode)**, restoring the user-mode thread's context. The result (e.g., a file handle or error code) is passed back up the chain: from the kernel to `ntdll.dll`, then back to `kernelbase.dll`, and finally to your application (e.g., Notepad.exe). Control switches back to **user mode** as the result is returned.
     > Yes, there's more to it, but this is sufficient for us now.
     {: .prompt-info}
 
@@ -146,3 +146,7 @@ The word *service* can refer to a callable routine (specifically a function or p
 
 <br>
 See you in next part <3❤️
+
+### References
+
+-- TODO

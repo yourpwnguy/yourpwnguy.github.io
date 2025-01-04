@@ -16,7 +16,7 @@ timezone: Asia/Calcutta
 
 title: YourPwnGuy # the main title
 
-tagline: An offensive hacker, automation guy, and coding aficionado. I love breaking codes just to fix it again 🕊️✨ # it will display as the sub-title
+tagline: An offensive hacker, malware analyst, and reversing aficionado. I love breaking codes just to fix them again 🕊️✨ # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
