@@ -59,7 +59,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "actions/upload-pages-artifact@v3
+          path: "actions/upload-pages-artifact@v3"
 
   deploy:
     environment:
