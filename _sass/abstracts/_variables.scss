@@ -1,7 +1,3 @@
-/*
- * The SCSS variables
- */
-
 /* sidebar */
 
 $sidebar-width: 260px !default; /* the basic width */
@@ -30,19 +26,5 @@ $code-icon-width: 1.75rem !default;
 
 /* fonts */
 
-@font-face {
-    font-family: 'Jetbrains';
-    src: url('../../assets/fonts/Jetbrains/ttf/JetBrainsMono-Light.ttf') format('truetype');
-        //  url('../fonts/CoolFont-Regular.woff') format('woff'),
-        //  url('../fonts/CoolFont-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    // font-size: 0.85rem;
-  }
-
-// $font-family-base: 'Source Sans Pro', 'Microsoft Yahei', sans-serif !default;
-$font-family-base: 'JetBrains' !default;
-// $font-family-heading: Lato, 'Microsoft Yahei', sans-serif !default;
-$font-family-heading: 'JetBrains' !default;
-
-
+$font-family-base: 'Source Sans Pro', 'Microsoft Yahei', sans-serif !default;
+$font-family-heading: Lato, 'Microsoft Yahei', sans-serif !default;
