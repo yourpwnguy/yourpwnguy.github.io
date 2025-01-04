@@ -28,6 +28,7 @@
 
       & {
         font-size: 1rem + (5 - $i) * $size-factor;
+        word-spacing: -0.2rem;
       }
     } @else {
       font-size: 1.05rem;

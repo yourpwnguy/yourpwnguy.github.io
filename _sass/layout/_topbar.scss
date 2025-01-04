@@ -18,6 +18,7 @@
   @extend %btn-color;
 
   #breadcrumb {
+    word-spacing: -0.1rem;
     font-size: 1rem;
     color: var(--text-muted-color);
     padding-left: 0.5rem;
