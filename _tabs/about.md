@@ -12,19 +12,32 @@ order: 4
 ![Desktop View](/assets/img/favicons/undraw.png){: width="800" height="800" }
 
 
-Hi, I'm Aakansh, and I'm really obsessed low-level security stuff like assembly, exploit development, reverse engineering, and malware analysis. These are the areas that excite me the most, and they’re what drive the work I do.
+Hi, I’m Aakansh, a nerd obsessed with low-level security because apparently, I enjoy staring at assembly code, overthinking my life choices, and pretending I’m way smarter than I actually am. Exploit development, reverse engineering, and malware analysis? Yeah, that’s what makes me excited. Basically, If it’s confusing, frustrating, and makes me question my sanity, I’m probably all over it.
 
-I started with web development, which gave me a good base to build on. Now, I still love web security and enjoy finding vulnerabilities in web applications.
+But, I didn’t dive straight into this madness, though.. 
 
-On this blog, I’ll be sharing posts about malware reversing, web security, and CTF challenges. I also like to create tools to automate things, and you can check them out on my GitHub: [yourpwnguy](https://github.com/yourpwnguy).
+**Story time:**
 
-Looking ahead, my goals are:
+Once upon a time, I was a web developer. It was fun, gave me a good base, and also taught me patience (because debugging Houdini JS feels like trying to train a wild raccoon, it does whatever it wants, and you just cry). But to this day, I still enjoy web security, breaking web apps and then leaving the fixing to developers.
 
-1. Hacking while sipping tea (my mom says no to coffee!)
-2. Working at top tech companies, where I can legally dig into their systems and find vulnerabilities. The developers can handle fixing them!
+**Now about this blog:** 
 
-Thanks for visiting my profile. I hope you find something useful here. If you have any suggestions or want me to write about something specific, just let me know. I’d love to hear your thoughts!
+It’s my personal junkyard. I use it to dump CTF write-ups, rants about stuff I’ve Googled too much, random research experiments and notes for future me, (who will definitely forget them anyway). If it helps you save some time, congrats - you owe me snacks.
 
-Cheers,
 
+Now, here’s what I plan to dump on this blog:
+
+- Malware reversing deep dives (or as I call it, staring contests with code. Why Sleep ?).
+- Web security write-ups (aka “how I broke this”).
+- CTF write-ups for the three people who might care.
+- Tools I build to avoid doing boring stuff manually. (GitHub: yourpwnguy, shameless plug).
+
+What’s the big dream?
+
+- Hacking systems while sipping tea (because coffee is banned in this house, thanks, Mom).
+- Working at top tech companies where I can legally break into their systems, and report bugs. Basically, getting paid to do what I’d probably do for free (don’t tell HR).
+
+Thanks for visiting! If you have suggestions, ideas, or just want me to ramble about something specific, let me know. I’d love to hear from you.
+
+Cheers,<br>
 Aakansh
