@@ -4,8 +4,8 @@ description: "A comprehensive guide, covering everything you need to know about 
 date: 2024-09-08
 categories: [Windows Internals, Concepts]
 tags: [Windows API, Windows Programming]
-image:
-  path: assets/temp/windows-internals/concepts/windows-api.jpg
+# image:
+#   path: assets/temp/windows-internals/concepts/windows-api.jpg
 ---
 
 
@@ -40,23 +40,7 @@ Following are some set of tools:
  - **Process and Thread Management**: Functions like `CreateProcess` and `CreateThread` to run programs and manage tasks.
  - **Device Input**: Tools to handle input from the keyboard or mouse, like `GetAsyncKeyState` to detect key presses.
 
-Note that Windows API operates in **user mode** doesn't necessarily mean that it doesn't interact with kernel mode. It interacts with the kernel mode when it needs to access core OS services using **syscalls**. Take the following example :-
-
-- Suppose your application calls `ReadFile(hFile, buffer, buffersize, &bytesRead, NULL)` which is a function that operates in **user mode**.
-
-- Now the `ReadFile` function performs initial checks and prepares for the operation. The execution is still in **user mode**.
-
-- The `ReadFile` function makes a **system call** to the kernel to perform the actual file read operation. The `ReadFile` function makes a **system call** to the kernel to perform the actual file read operation.
-
-- The kernel performs the file read operation, accessing hardware or system resources as needed. The operation is performed in **kernel mode**.
-
-- The kernel completes the file read and returns the result to the `ReadFile` function. Execution switches back to **user mode**.
-
-- The `ReadFile` function returns the result (e.g., number of bytes read) to the calling application. The result is available in **user mode**.
-
-> Please note that, it is just a general overview of how the process looks like. Currently we do not have enough tools to understand all the workings behind the scene.
-{: .prompt-info }
-
+Note that Windows API operates in **user mode** doesn't necessarily mean that it doesn't interact with kernel mode. It interacts with the kernel mode when it needs to access core OS services using **syscalls**.
 
 ### Some General Concepts
 
@@ -78,7 +62,7 @@ The .NET Framework consists of two major components:
 
 ### Services, functions, and routines
 
-The word *service* can refer to a callable routine (specifically a function or procedure that can be invoked during a program's execution) in the OS, a device driver, or a server process. The following list describes what certain terms mean:
+The word service can refer to a callable routine (specifically a function or procedure that can be invoked during a program's execution) in the OS, a device driver, or a server process. The following list describes what certain terms mean:
 
 - **Windows API Functions:** These are documented, callable subroutines (Typically refers to a smaller, more focused routine, often part of a larger program or routine) in the Windows API. Examples include **CreateProcess**, **CreateFile** and **GetMessage**.
 

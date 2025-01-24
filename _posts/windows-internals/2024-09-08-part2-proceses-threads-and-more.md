@@ -4,8 +4,8 @@ description: "In this blog, we’ll break down how Windows manages processes, th
 date: 2024-09-11
 categories: [Windows Internals, Concepts]
 tags: [Windows API, Windows Programming]
-image:
-  path: assets/temp/windows-internals/concepts/part2-concepts.png
+# image:
+#   path: assets/temp/windows-internals/concepts/part2-concepts.png
 ---
 
 ### Processes: The Stage Where It All Begins
