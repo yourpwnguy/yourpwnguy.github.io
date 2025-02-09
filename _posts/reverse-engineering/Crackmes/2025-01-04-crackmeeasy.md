@@ -1,7 +1,7 @@
 ---
 title: "Zenton's Crack me for beginners: An Easy Game"
 description: "In this blog, I'll attempt to reverse-engineer the Zenton's crackme challenge hosted on crackmes.one in detail."
-date: 2024-09-11
+date: 2024-12-09
 categories: [Reverse Engineering, Crackmes]
 tags: [Reverse Engineering, Malware Analysis, IDA Pro]
 # image:
