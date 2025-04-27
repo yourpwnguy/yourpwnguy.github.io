@@ -19,7 +19,7 @@ title: YourPwnGuy # the main title
 tagline: An offensive hacker, malware analyst, and reversing aficionado. I love breaking codes just to fix them again 🕊️✨ # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+ "Fuzzing, exploits, and hacking tutorials straight from the trenches. Get your hands dirty with real-world examples and code."
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -39,7 +39,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
+    - https://github.com/yourpwnguy # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -96,7 +96,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: assets/img/favicons/profile.jpeg
+avatar: assets/img/favicons/profile.png
   
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
