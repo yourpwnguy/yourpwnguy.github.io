@@ -85,9 +85,6 @@ And Now, for those who are unfamiliar with dynamic linking, yess, we don't leave
 
 Dynamic linking is like your program outsourcing its chores. Instead of stuffing all the code into the executable, it says, “Hey DLLs, you should handle this!” It's at runtime, the dynamic linker kicks in like an exam coordinator ( always make me sit in front seat ) and figures out where the actual code lives and how to connect to it.
 
->One thing about that exam coordinator, oops, I mean, the dynamic linker - it plays matchmaker but is lazy. It doesn’t resolve a function until you actually call it. Think of it as, “I’ll find out where the pizza place is when I’m hungry.” After the first call, it remembers the address, so next time, no delays. Less upfront work, less memory wasted—win-win!
-{: .prompt-info }
-
 
 Benefits:
 
