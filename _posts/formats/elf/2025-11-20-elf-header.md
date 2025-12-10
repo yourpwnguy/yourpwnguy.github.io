@@ -1,7 +1,7 @@
 ---
 title: "Inside the ELF: ELF Header"
 description: "A breakdown of the ELF header: its fields, their purpose, and how they define the structure of every ELF binary."
-date: 2025-03-20
+date: 2025-12-10
 categories: [Formats, ELF]
 tags: [ELF, Binary Formats, Reverse Engineering, Low-Level, Internals]
 ---
