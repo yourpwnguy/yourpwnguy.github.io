@@ -14,12 +14,12 @@ timezone: Asia/Calcutta
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: YourPwnGuy # the main title
+title: Diary of YourPwnGuy # the main title
 
 tagline: An offensive hacker, malware analyst, and reversing aficionado. I love breaking codes just to fix them again 🕊️✨ # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
- Fuzzing, exploits, and hacking tutorials straight from the trenches. Get your hands dirty with real-world examples and code.
+  Fuzzing, exploits, and hacking tutorials straight from the trenches. Get your hands dirty with real-world examples and code.
 
 # Fill in the protocol & hostname for your site.
 # e.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -97,7 +97,7 @@ cdn:
 
 # the avatar on sidebar, support local or CORS resources
 avatar: assets/img/favicons/profile_3mb.png
-  
+
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
 social_preview_image: # string, local or CORS resources
