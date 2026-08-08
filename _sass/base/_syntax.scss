@@ -6,7 +6,8 @@
 .highlighter-rouge {
   color: var(--highlighter-rouge-color);
   margin-top: 0.5rem;
-  margin-bottom: 1.2em; /* Override BS Inline-code style */
+  margin-bottom: 1.2em;
+  /* Override BS Inline-code style */
 }
 
 .highlight {
@@ -22,10 +23,10 @@
 
   pre {
     margin-bottom: 0;
-    font-family:'JetBrains';
+    // font-family: 'JetBrains';
+    font-family: 'Maple Mono NF';
     font-size: v.$code-font-size;
     line-height: 1.4rem;
-    word-wrap: normal; /* Fixed Safari overflow-x */
   }
 
   table {
@@ -41,8 +42,10 @@
       }
 
       pre {
-        overflow: visible; /* Fixed iOS safari overflow-x */
-        word-break: normal; /* Fixed iOS safari linenos code break */
+        overflow: visible;
+        /* Fixed iOS safari overflow-x */
+        word-break: normal;
+        /* Fixed iOS safari linenos code break */
       }
     }
   }
@@ -56,7 +59,9 @@
     -ms-user-select: none;
     user-select: none;
   }
-} /* .highlight */
+}
+
+/* .highlight */
 
 code {
   -webkit-hyphens: none;
@@ -66,9 +71,10 @@ code {
 
   &.highlighter-rouge {
     font-size: v.$code-font-size;
-    font-family: "Jetbrains";
+    // font-family: 'JetBrains';
+    font-family: 'Maple Mono NF';
     padding: 3px 5px;
-    word-break: break-word;
+    overflow-wrap: break-word;
     border-radius: v.$radius-sm;
     background-color: var(--inline-code-bg);
   }
@@ -80,12 +86,13 @@ code {
     padding: 0;
   }
 
-  a > &.highlighter-rouge {
-    padding-bottom: 0; /* show link's underlinke */
+  a>&.highlighter-rouge {
+    padding-bottom: 0;
+    /* show link's underline */
     color: inherit;
   }
 
-  a:hover > &.highlighter-rouge {
+  a:hover>&.highlighter-rouge {
     border-bottom: none;
   }
 
@@ -114,7 +121,7 @@ div[class^='language-'] {
 
   box-shadow: var(--language-border-color) 0 0 0 1px;
 
-  .content > & {
+  .content>& {
     @include mx.ml-mr(-1rem);
 
     border-radius: 0;
@@ -140,10 +147,9 @@ div[class^='language-'] {
         height: v.$code-dot-size;
         border-radius: 50%;
         background-color: var(--code-header-muted-color);
-        box-shadow: (v.$code-dot-size + v.$code-dot-gap) 0 0
-            var(--code-header-muted-color),
-          (v.$code-dot-size + v.$code-dot-gap) * 2 0 0
-            var(--code-header-muted-color);
+        box-shadow:
+          (v.$code-dot-size + v.$code-dot-gap) 0 0 var(--code-header-muted-color),
+          (v.$code-dot-size + v.$code-dot-gap) * 2 0 0 var(--code-header-muted-color);
       }
 
       span {
@@ -161,6 +167,7 @@ div[class^='language-'] {
 
 /* Hide line numbers for default, console, and terminal code snippets */
 div {
+
   &.nolineno,
   &.language-plaintext,
   &.language-console,
@@ -201,9 +208,10 @@ div {
       }
     }
 
-    @at-root [file] #{&} > i {
+    @at-root [file] #{&}>i {
       position: relative;
-      top: 1px; /* center the file icon */
+      top: 1px;
+      /* center the file icon */
     }
 
     /* label text */
@@ -221,8 +229,9 @@ div {
     @extend %rounded;
 
     border: 1px solid transparent;
-    height: v.$code-header-height;
-    width: v.$code-header-height;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.125rem;
     padding: 0;
     background-color: inherit;
 
@@ -236,6 +245,7 @@ div {
       }
 
       i {
+        font-size: 90%;
         color: var(--clipboard-checked-color);
       }
     }
@@ -245,7 +255,7 @@ div {
     }
 
     &:not([timeout]):hover {
-      background-color: rgba(128, 128, 128, 0.37);
+      background-color: rgb(128 128 128 / 37%);
 
       i {
         color: white;

@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../abstracts/variables' as v;
 @use '../abstracts/breakpoints' as bp;
 @use '../abstracts/mixins' as mx;
@@ -5,41 +6,36 @@
 @use '../themes/light';
 @use '../themes/dark';
 
+$enable-dual: not list.index(v.$theme-options, v.$theme);
+$enable-light: v.$theme ==light or $enable-dual;
+$enable-dark: v.$theme ==dark or $enable-dual;
+
+@if $enable-light {
+  :root[#{v.$theme-attr}='light'] {
+    @include light.styles;
+  }
+}
+
+@if $enable-dark {
+  :root[#{v.$theme-attr}='dark'] {
+    @include dark.styles;
+  }
+}
+
+@if $enable-dual {
+  :root:not([#{v.$theme-attr}]) {
+    @include mx.color-scheme(light) {
+      @include light.styles;
+    }
+
+    @include mx.color-scheme(dark) {
+      @include dark.styles;
+    }
+  }
+}
+
 :root {
   font-size: 16px;
-}
-
-em {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 0.75rem;
-  font-style: normal;
-  color: #9c9c9c;
-}
-
-html {
-  @media (prefers-color-scheme: light) {
-    &:not([data-mode]),
-    &[data-mode='light'] {
-      @include light.styles;
-    }
-
-    &[data-mode='dark'] {
-      @include dark.styles;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    &:not([data-mode]),
-    &[data-mode='dark'] {
-      @include dark.styles;
-    }
-
-    &[data-mode='light'] {
-      @include light.styles;
-    }
-  }
 
   @include bp.lg {
     overflow-y: scroll;
@@ -48,8 +44,7 @@ html {
 
 body {
   background: var(--main-bg);
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
   font-family: v.$font-family-base;
@@ -59,7 +54,7 @@ h1.dynamic-title {
   @include bp.lt(bp.get(lg)) {
     display: none;
 
-    ~ .content {
+    ~.content {
       margin-top: 2.5rem;
     }
   }
@@ -112,7 +107,7 @@ main {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: var(--card-hovor-bg);
+    background-color: var(--card-hover-bg);
     opacity: 0;
     transition: opacity 0.35s ease-in-out;
   }
@@ -139,16 +134,13 @@ main {
 }
 
 .content {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   word-spacing: -0.15rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
 
   @include bp.xl {
-    // font-size: 1.03rem;
-    font-size: 0.92rem;
-    word-spacing: -0.15rem;
-
+    font-size: 0.86rem;
   }
 
   a {
@@ -171,6 +163,7 @@ main {
 
   ol,
   ul {
+
     &:not([class]),
     &.task-list {
       -webkit-padding-start: 1.75rem;
@@ -199,7 +192,7 @@ main {
       padding-left: 0;
 
       /* checkbox icon */
-      > i {
+      >i {
         width: 2rem;
         margin-left: -1.25rem;
         color: var(--checkbox-color);
@@ -219,9 +212,11 @@ main {
       margin: 0 0.5rem 0.2rem -1.3rem;
       vertical-align: middle;
     }
-  } /* ul */
+  }
 
-  dl > dd {
+  /* ul */
+
+  dl>dd {
     margin-left: 1rem;
   }
 
@@ -229,12 +224,14 @@ main {
     color: var(--text-muted-color);
   }
 
-  .table-wrapper > table {
+  .table-wrapper>table {
     @include bp.lg {
       min-width: 70%;
     }
   }
-} /* .content */
+}
+
+/* .content */
 
 .tag:hover {
   @extend %tag-hover;
@@ -327,7 +324,14 @@ main {
 
 .embed-audio {
   width: 100%;
-  display: block;
+
+  &.file {
+    display: block;
+  }
+
+  &.spotify {
+    border-radius: 14px;
+  }
 
   @extend %img-caption;
 }
@@ -362,7 +366,7 @@ main {
 }
 
 .disabled {
-  color: rgb(206, 196, 196);
+  color: rgb(206 196 196);
   pointer-events: auto;
   cursor: not-allowed;
 }
@@ -375,7 +379,9 @@ main {
   box-shadow: none;
   border-color: var(--input-focus-border-color) !important;
   background: center !important;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
 }
 
 .left {
@@ -397,12 +403,13 @@ main {
 
 /* MathJax */
 mjx-container {
-  overflow-y: hidden;
-  min-width: auto !important;
+  a {
+    display: inline-block;
+  }
 }
 
 @media (hover: hover) {
-  #sidebar ul > li:last-child::after {
+  #sidebar ul>li:last-child::after {
     transition: top 0.5s ease;
   }
 
@@ -436,7 +443,7 @@ mjx-container {
     margin-left: v.$sidebar-width-large;
   }
 
-  > .container {
+  >.container {
     min-height: 100vh;
 
     @include bp.lte(bp.get(md)) {
@@ -457,7 +464,7 @@ mjx-container {
     }
 
     @include bp.lt(bp.get(xl)) {
-      > .row {
+      >.row {
         justify-content: center !important;
       }
     }
@@ -473,8 +480,8 @@ mjx-container {
 /* --- basic wrappers --- */
 
 #topbar-wrapper.row,
-#main-wrapper > .container > .row,
-#search-result-wrapper > .row {
+#main-wrapper>.container>.row,
+#search-result-wrapper>.row {
   @include mx.ml-mr(0);
 }
 

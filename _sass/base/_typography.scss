@@ -7,30 +7,32 @@
   h#{$i} {
     @extend %heading;
 
-    @if $i > 1 {
+    @if $i >1 {
       @extend %anchor;
     }
 
     @if $i < 5 {
       $size-factor: 0.25rem;
 
-      @if $i > 1 {
+      @if $i >1 {
         $size-factor: 0.18rem;
 
         main & {
-          @if $i == 2 {
+          @if $i ==2 {
             margin: 2.5rem 0 1.25rem;
-          } @else {
+          }
+
+          @else {
             margin: 2rem 0 1rem;
           }
         }
       }
 
-      & {
-        font-size: 1rem + (5 - $i) * $size-factor;
-        word-spacing: -0.2rem;
-      }
-    } @else {
+      font-size: 1rem+(5 - $i) * $size-factor;
+      word-spacing: -0.2rem;
+    }
+
+    @else {
       font-size: 1.05rem;
     }
   }
@@ -61,7 +63,7 @@ blockquote {
   color: var(--blockquote-text-color);
   margin-top: 0.5rem;
 
-  > p:last-child {
+  >p:last-child {
     margin-bottom: 0;
   }
 
@@ -138,6 +140,7 @@ footer {
 
 /* fontawesome icons */
 i {
+
   &.far,
   &.fas {
     @extend %no-cursor;
@@ -160,7 +163,7 @@ main {
   }
 
   p {
-    > a.popup {
+    >a.popup {
       &:not(.normal):not(.left):not(.right) {
         @include mx.align-center;
       }
@@ -177,7 +180,7 @@ main {
 
   @include bp.lte(bp.get(sm)) {
     .content {
-      > blockquote[class^='prompt-'] {
+      >blockquote[class^='prompt-'] {
         @include mx.ml-mr(-1rem);
 
         border-radius: 0;
@@ -187,18 +190,18 @@ main {
   }
 }
 
-.footnotes > ol {
+.footnotes>ol {
   padding-left: 2rem;
   margin-top: 0.5rem;
 
-  > li {
+  >li {
     &:not(:last-child) {
       margin-bottom: 0.3rem;
     }
 
     @extend %sup-fn-target;
 
-    > p {
+    >p {
       margin-left: 0.25em;
 
       @include mx.mt-mb(0);
@@ -233,13 +236,13 @@ main {
   overflow-x: auto;
   margin-bottom: 1.5rem;
 
-  > table {
+  >table {
     min-width: 100%;
     overflow-x: auto;
     border-spacing: 0;
 
     thead {
-      border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+      border-bottom: solid 2px rgb(210 215 217 / 75%);
 
       th {
         @extend %table-cell;
@@ -262,6 +265,10 @@ main {
           @extend %table-cell;
         }
       }
-    } /* tbody */
-  } /* table */
+    }
+
+    /* tbody */
+  }
+
+  /* table */
 }

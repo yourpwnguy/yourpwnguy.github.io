@@ -2,9 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-theme-chirpy", "~> 7.0", ">= 7.0.1"
-gem "jekyll-sass-converter", "~> 2.2"
-
+# gem "jekyll-theme-chirpy", "~> 7.0", ">= 7.0.1"
+gem "jekyll-theme-chirpy", "~> 7.6"
+# gem "sass-embedded", "~> 1.77.8"
+#
 group :test do
   gem "html-proofer", "~> 5.0"
 end

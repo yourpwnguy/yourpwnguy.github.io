@@ -30,8 +30,10 @@ $code-icon-width: 1.75rem !default;
 /* fonts */
 
 @font-face {
-  font-family: 'Jetbrains';
-  src: url('../../assets/fonts/Jetbrains/webfonts/JetBrainsMono-Light.woff2') format('woff2');
+  font-family: 'Maple Mono NF';
+  src: url('../../assets/fonts/MapleMono/MapleMono-NF-Regular.woff2') format('truetype');
+  // src: url('../../assets/fonts/Jetbrains/webfonts/JetBrainsMono-Light.woff2') format('woff2');
+  // src: url('../../assets/fonts/Jetbrains/webfonts/JetBrainsMono-Regular.woff2') format('woff2');
   //  url('../fonts/CoolFont-Regular.woff') format('woff'),
   //  url('../fonts/CoolFont-Regular.ttf') format('truetype');
   font-weight: normal;
@@ -40,10 +42,15 @@ $code-icon-width: 1.75rem !default;
   // font-size: 0.85rem;
 }
 
-$font-family-base: 'JetBrains' !default;
-$font-family-heading: 'JetBrains' !default;
-
-
-
 // $font-family-base: 'Source Sans Pro', 'Microsoft Yahei', sans-serif !default;
 // $font-family-heading: Lato, 'Microsoft Yahei', sans-serif !default;
+$font-family-base: 'Maple Mono NF' !default;
+$font-family-heading: 'Maple Mono NF' !default;
+
+/* Theme mode settings */
+
+$theme-attr: 'data-bs-theme';
+/* the attribute used to indicate the resolved theme */
+$theme-options: light, dark;
+$theme: null !default;
+/* set by Jekyll site configuration */
