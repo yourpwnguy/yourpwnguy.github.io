@@ -134,13 +134,13 @@ main {
 }
 
 .content {
-  font-size: 0.86rem;
+  font-size: 0.83rem;
   word-spacing: -0.15rem;
   margin-top: 2rem;
   overflow-wrap: break-word;
 
   @include bp.xl {
-    font-size: 0.86rem;
+    font-size: 0.83rem;
   }
 
   a {
