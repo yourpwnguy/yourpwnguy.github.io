@@ -38,3 +38,41 @@ At this point, Strix had officially been put on hold. The ELF wasn't getting ins
 And honestly?
 
 I was having way more fun.
+
+So, the first thing I did was a string search. The plan was pretty simple: reverse our way backwards from anything related to the license until we eventually land on the routine actually handling the license check.
+
+I searched for `"Evaluation Period Expired"`.
+
+Well... technically, I only typed the first three characters because IDA immediately started showing me the string, so obviously I wasn't going to sit there typing the whole fucking thing like some NPC.
+
+And there it was.
+
+**Our first fucking lead**.
+
+## Where the Fuck Is the License Check?
+
+From the above image, you can see that we found the string we were looking for. So naturally, the next question was: where the fuck is this thing being used?
+
+That's where X-refs come in.
+
+I checked the cross-references to the specific label holding our `"Evaluation Period Expired"` string. If we're lucky, something in the license-checking logic should be referencing it.
+
+And guess what? There was only **one** X-ref.
+
+One.
+
+That's exactly what we fucking wanted. So I followed it.
+
+And this is where things started getting interesting.
+
+The reference dropped us straight into a routine that looked suspicious as hell. So obviously, I opened IDA's decompiler because reading raw assembly for every single fucking instruction is a great way to turn your brain into mashed potatoes.
+
+IDA gave us the decompiled view, and sitting right there was the routine name:
+
+GetStatus
+
+Now, I don't know about you, but a function called GetStatus sitting directly behind a string screaming **"Evaluation Period Expired"** is about as subtle as a fucking neon sign saying **"LOOK HERE, DUMBASS."**
+
+We had a lead.
+
+Now it was time to follow the fucking rabbit hole.
