@@ -69,9 +69,9 @@ The reference dropped us straight into a routine that looked suspicious as hell.
 
 IDA gave us the decompiled view, and sitting right there was the routine name:
 
-GetStatus
+`GetStatus`
 
-Now, I don't know about you, but a function called GetStatus sitting directly behind a string screaming **"Evaluation Period Expired"** is about as subtle as a fucking neon sign saying **"LOOK HERE, DUMBASS."**
+Now, I don't know about you, but a function called `GetStatus` sitting directly behind a string screaming **"Evaluation Period Expired"** is about as subtle as a fucking neon sign saying **"LOOK HERE, DUMBASS."**
 
 We had a lead.
 
